@@ -1,0 +1,31 @@
+// carregar a tabela percent.txt ok
+
+// carregar o texto a ser desofuscado ok
+
+// começar o loop do automato estamos aqui
+
+texto[15]="%41%6c%6f%5b%5d";
+
+ler posiçao [0]
+
+if  posicao [0] == "%"{ ok
+    ler posição [1]; ok
+    if posição 1 >1 e posicao 1 < 8 { ok
+        if posicao 2 = (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f){ estamos aqui
+            traduz da tabela
+            andar o vetor para posicao 3
+        }
+        else{
+            copia texto literal das posicoes 0,1,2
+            andar o vetor para posicao 3
+        }
+    }
+}
+else {
+    copiar texto literal
+    posicao++
+}
+
+
+
+%41%6c%6f%5b%5d
