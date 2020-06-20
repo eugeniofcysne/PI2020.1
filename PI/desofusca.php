@@ -55,7 +55,7 @@
         }
     </style>
     <div class="topnav" id="myTopnav">
-    <img src="senai.png" aling= "left">
+    <img src="img/senai.png" aling= "left">
        
         
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
