@@ -1,6 +1,16 @@
 <html lang="pt-br">
 
 <head>
+<?php 
+session_start();
+if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
+  unset($_SESSION['email']);
+  unset($_SESSION['senha']);
+  header('location:index.php');
+}
+ 
+$nome = $_SESSION['nome_usuario'];
+?>
 <title>Aluno</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -24,7 +34,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Eugênio (aqui vai o nome do aluno)</h1><a name="inicio"> 
+					<h1>
+					<?php
+					echo" Bem vindo $nome";
+					?>
+					</h1><a name="inicio"> 
 					<p>&emsp;Bem-vindo(a) ao módulo de Aluno. Neste ambiente, você pode cadastrar um novo certificado, Solicitar emissão de certificado, gerar relatório e acompanhar certificados em andamento.	
 				</div>
 			</div>
@@ -45,7 +59,7 @@
                     <a href="gerarRelatorio.php" class="btn btn-primary" role="button">Gerar Relatório</a>
 				</div> 
                 <div class="col-sm-3">
-                    <a href="relatorioAndamento.php" class="btn btn-primary" role="button">Relatórios em Andamento</a>
+                    <a href="relatorioAndamento.php" class="btn btn-primary" role="button">Certificados em Andamento</a>
 				</div> 								
 				
 			</div>			

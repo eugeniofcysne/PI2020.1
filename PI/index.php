@@ -44,7 +44,7 @@
 						
 						<div class="caption"> 
 							<h3>Aluno</h3> <a name="aluno"> 
-							<p>Acessar como Aluno</p> <p><a href="aluno.php" class="btn btn-primary" role="button">Aluno</a>
+							<p>Acessar como Aluno</p> <p><a href="login_aluno.php" class="btn btn-primary" role="button">Aluno</a>
 						</div> 
 					</div> 
 				</div> 

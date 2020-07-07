@@ -3,13 +3,10 @@ session_start();
 include_once("conexao.php");
 
 
-$aluno=filter_input(INPUT_POST, 'nomeAluno',FILTER_SANITIZE_STRING);
 $nome=filter_input(INPUT_POST, 'nomeCertificado',FILTER_SANITIZE_STRING);
 $tipo=filter_input(INPUT_POST, 'tipoCertificado',FILTER_SANITIZE_STRING);
 
 $horas=filter_input(INPUT_POST, 'horasCertificado',FILTER_SANITIZE_NUMBER_INT);
-
-echo "Aluno: $aluno <br>";
 echo "Nome: $nome <br>";
 echo "Tipo: $tipo <br>";
 echo "Horas: $horas <br>";
