@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once("conexao.php");
+?>
 <html lang="pt-br">
 
 <head>
@@ -72,60 +76,22 @@
 
     </script>
 </head>
-
 <body>
-<br>
-<input type="text" name="nome" placeholder="Nome">
-<input type="text" name="data" placeholder="Data"> <a class="btn btn-primary" role="button">Pesquisar</a>
-    <br>
-    <?php
-    //https://pt.stackoverflow.com/questions/21073/criar-tabela-html-e-mostrar-dados-usando-php
-    //variável para receber o código da tabela
-    $tabela = '<table border="1">';//abre table
-    $tabela .='<thead>';//abre cabeçalho
-    $tabela .= '<tr>';//abre uma linha
-    $tabela .= '<th>NomeAluno</th>'; // colunas do cabeçalho
-    $tabela .= '<th>Matricula</th>';
-    $tabela .= '<th>DataEnvio</th>';
-    $tabela .= '<th>Arquivo</th>';
-    $tabela .= '</tr>';//fecha linha
-    $tabela .='</thead>'; //fecha cabeçalho
-    $tabela .='<tbody>';//abre corpo da tabela
-    /*Se você tiver um loop para exibir os dados ele deve ficar aqui*/
-    $tabela .= '<tr>'; // abre uma linha
-    $tabela .= '<td></td>'; // coluna NomeAluno
-    $tabela .= '<td>'.$exibe['Matricula'].'</td>'; //coluna Matricula
-    $tabela .= '<td>'.$exibe['DataEnvio'].'</td>'; // coluna DataEnvio
-    $tabela .= '<td><a href="xxx.php?id='.$exibe['id'].'">Ver arquivo</a></td>';
-    $tabela .= '</tr>'; // fecha linha
-    /*loop deve terminar aqui*/
-    $tabela .='</tbody>'; //fecha corpo
-    $tabela .= '</table>';//fecha tabela
-    
-    echo $tabela; // imprime 
-    if(mysql_num_rows($resultado)>0) {
-        echo "<table border='1'>"; //Criamos a tabela
-        //Aqui criamos o cabeçalho da tabela.
-        // A tag <tr> abre uma linha, enquanto a <td> abre uma célula.
-        echo "<tr><td>NomeAluno</td>"
-             ."<td>Matricula</td>"
-             ."<td>DataEnvio</td>"
-             ."</tr>"; // Fechamos o cabeçalho. 
-             echo $tabela; // imprime 
-   
-//Vamos percorrer o array, e fazer a mesma coisa que fizemos em cima.
-//Montar uma linha, e as células da tabela.
-while($exibe=mysql_fetch_array($resultado)) {
-    $id = $exibe['id'];
-    //Não exibi todos os dados, agora é só você completar, colocando cada célula dentro de um <td>
-         echo "<tr><td>$exibe[Alvara]</td>"
-              ."<td><a href='xxx.php?id=$id'>Ver Arquivo</a></td>"
-              ."</tr>";
-    }
-    // E fora do while fechamos a tabela.
-    echo "</table>";
-}   ?>
 
+<h1>Listar Certificados</h1>
+<?php
+		
+        $result_usuarios = "SELECT * FROM certificado";
+		$resultado_usuarios = mysqli_query($conn, $result_usuarios);
+		while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
+        echo "Nome: " . $row_usuario['usuario_cod_usuario'] . "<br>";
+        echo "Data: " . $row_usuario['data_criacao'] . "<br>";
+        echo "Identificação certificado: " . $row_usuario['nome_certificado'] . "<br>";
+        echo "Horas: " . $row_usuario['horas_certificado'] . "<br>";
+        echo "Tipo de certificado: " . $row_usuario['tipo_certificado'] . "<br><hr>";
+        
+        }
+        ?>
 </body>
 
 
