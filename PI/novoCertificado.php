@@ -22,108 +22,7 @@
         crossorigin = "anonymous" >
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-            $('.carregar').click(function() {
-                $('#enviar_form').attr('action',$(this).attr('pagina'));
-                $('#enviar_form').submit();
-            });
-            
-            $('#btn_percent').click(function() {
-                var novo_texto = $('#ins_texto').val();
-                if (novo_texto.length > 0) {
-                    fn_desofusca_percent(novo_texto);
-                    $('#result').html('');
-                } else {
-                    $('#result').html('Insira um texto válido');
-                }
-            });
-
-            $('#btn_ampersan').click(function() {
-                var novo_texto_ampersan = $('#ins_texto').val();
-                if (novo_texto_ampersan.length > 0) {
-                    fn_desofusca_ampersan(novo_texto_ampersan);
-                    $('#result').html('');
-                } else {
-                    $('#result').html('Insira um texto válido');
-                }
-            });
-
-            $('#btn_char').click(function() {
-                var novo_texto_char = $('#ins_texto').val();
-                if (novo_texto_char.length > 0) {
-                    fn_desofusca_char(novo_texto_char);
-                    $('#result').html('');
-                } else {
-                    $('#result').html('Insira um texto válido');
-                }
-            });
-
-            function fn_desofusca_percent(novo_texto) {
-                $('#dv_original').html('');
-                $.ajax({
-                    url: 'desofusca_texto_percent.php',
-                    data: {
-                        texto: novo_texto
-                    },
-                    timeout: 1200000,
-                    async: false,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(retorno) {
-                        if (retorno.sucesso == 'true') {
-                            $('#dv_original').html("Novo texto " + retorno.novo_texto + " processado");
-                        } else {
-                            $('#dv_original').html("deu errado");
-                        }
-                    }
-                });
-            }
-
-            function fn_desofusca_ampersan(novo_texto_ampersan) {
-                $('#dv_original').html("");
-                $.ajax({
-                    url: 'desofusca_texto_ampersan.php',
-                    data: {
-                        texto_ampersan: novo_texto_ampersan
-                    },
-                    timeout: 1200000,
-                    async: false,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(retorno_ampersan) {
-                        if (retorno_ampersan.sucesso == 'true') {
-                            alert (retorno_ampersan.novo_texto_ampersan);
-                            $('#dv_original').html("Novo texto " + retorno_ampersan.novo_texto_ampersan + " processado");
-                        } else {
-                            $('#dv_original').html("deu errado");
-                        }
-                    }
-                });
-            }
-
-            function fn_desofusca_char(novo_texto_char) {
-                $('#dv_original').html("");
-                $.ajax({
-                    url: 'desofusca_texto_char.php',
-                    data: {
-                        texto_char: novo_texto_char
-                    },
-                    timeout: 1200000,
-                    async: false,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(retorno_char) {
-                        if (retorno_char.sucesso == 'true') {
-                            $('#dv_original').html("Novo texto " + retorno_char.novo_texto_char + " processado");
-                        } else {
-                            $('#dv_original').html("deu errado");
-                        }
-                    }
-                });
-            }
-        });
-    </script>
+    
 </head>
 
 <body>
@@ -133,18 +32,30 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="post" name="enviar_form" id="enviar_form" enctype="multipart/form-data" target="iframeUpload">
+                        <form  method="post" name="novo_certificado_form_aluno" id="novo_certificado_form_aluno" action="carregar_certificado_aluno.php">
                             <div class="form-group">
-                                <label for="arq">Escolha um arquivo para leitura: </label>
+                                <label for="arq">Fazer o upload do Certificado: </label>
                                 <input type="file" name="arquivos[]" class="form-control" id="arq">
                             </div>
-                            <button type="submit" pagina= "ler_arquivo_percent.php" id="bt_carregar_percent" class="btn carregar">Carregar Percent</button>
-                            <button type="submit" pagina= "ler_arquivo_char.php" id="bt_carregar_char" class="btn carregar">Carregar Char</button>
-                            <button type="submit" pagina= "ler_arquivo_ampersan.php" id="bt_carregar_ampersan" class="btn carregar">Carregar Ampersan</button>
+                            <div class="form-group">
+                                <label for="arq">Nome do Aluno: </label>
+                                <input type="text" name="nomeAluno" class="form-control" id="nomeAluno">
+                            </div>
+                            <div class="form-group">
+                                <label for="arq">Nome do Certificado: </label>
+                                <input type="text" name="nomeCertificado" class="form-control" id="nomeCertificado">
+                            </div>
+                            <div class="form-group">
+                                <label for="arq">Tipo do Certificado: </label>
+                                <input type="text" name="tipoCertificado" class="form-control" id="tipoCertificado">
+                            </div>
+                            <div class="form-group">
+                                <label for="arq">Quantidade de Horas: </label>
+                                <input type="number" name="horasCertificado" class="form-control" id="horasCertificado">
+                            </div>
+                            <button type="submit" id="bt_carregar" class="btn carregar">Carregar</button>
                             <button type="reset" class="btn">Limpar</button>
                         </form>
-                        
-                        <iframe name="iframeUpload" id="iframeUpload"></iframe>
 
 
 
@@ -153,31 +64,7 @@
             </div>
         </div>
         <br>
-        <div class="card">
-            <div class="card-header">Digite seu texto ofuscado no campo abaixo: </div>
-            <div class="card-body">
-                <form>
-                    <div class="form-group mb-3 input-group-sm">
-                        <input type="text" name="ins_texto" class="form-control" id="ins_texto" placeholder="Digite seu texto aqui">
-                        <br>
-                        <button type="button" id="btn_percent" class="btn">Carregar Percent</button>
-                        <button type="button" id="btn_ampersan" class="btn">Carregar Ampersan</button>
-                        <button type="button" id="btn_char" class="btn">Carregar Char</button>
-                        <span id="result"></span>
-                    </div>
-                </form>
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header">Texto desofuscado</div>
-                            <div class="card-body">
-                                <div id="dv_original"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <br>
 </body>

@@ -15,78 +15,72 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`perfil`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`perfil` (
-  `cod_perfil` INT NOT NULL,
-  `descricao_perfil` VARCHAR(45) NULL,
-  PRIMARY KEY (`cod_perfil`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`usuario`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`usuario` ;
+
 CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
-  `cod_usuario` INT NOT NULL,
+  `cod_usuario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL,
   `data_nascimento` DATETIME NULL,
   `cpf` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   `cargo` VARCHAR(45) NULL,
-  PRIMARY KEY (`cod_usuario`),
-  CONSTRAINT `perfil_cod_perfil`
-    FOREIGN KEY (`cod_usuario`)
-    REFERENCES `mydb`.`perfil` (`cod_perfil`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `perfil_cod_perfil` INT NOT NULL,
+  PRIMARY KEY (`cod_usuario`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`certificado`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`certificado` ;
+
 CREATE TABLE IF NOT EXISTS `mydb`.`certificado` (
-  `cod_certificado` INT NOT NULL,
-  `nome_certificado` VARCHAR(45) NULL,
-  `data_criacao` DATETIME NULL,
-  PRIMARY KEY (`cod_certificado`),
-  CONSTRAINT `usuario_cod_usuario`
-    FOREIGN KEY (`cod_certificado`)
-    REFERENCES `mydb`.`usuario` (`cod_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `cod_certificado` INT NOT NULL AUTO_INCREMENT,
+  `nome_certificado` VARCHAR(45) NOT NULL,
+  `data_criacao` DATETIME NOT NULL,
+  `horas_certificado` INT UNSIGNED NOT NULL,
+  `tipo_certificado` VARCHAR(45) NOT NULL,
+  `usuario_cod_usuario` INT NOT NULL,
+  PRIMARY KEY (`cod_certificado`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`perfil`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`perfil` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`perfil` (
+  `cod_perfil` INT NOT NULL AUTO_INCREMENT,
+  `descricao_perfil` VARCHAR(45) NULL,
+  PRIMARY KEY (`cod_perfil`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`alteracao_status_certificado`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`alteracao_status_certificado` ;
+
 CREATE TABLE IF NOT EXISTS `mydb`.`alteracao_status_certificado` (
-  `cod_alteracao` INT NOT NULL,
   `enum_status_anterior` INT NULL,
   `enum_status_posterior` INT NULL,
   `data_alteracao` DATETIME NULL,
-  PRIMARY KEY (`cod_alteracao`),
-  CONSTRAINT `fk_cod_certificado`
-    FOREIGN KEY (`cod_alteracao`)
-    REFERENCES `mydb`.`certificado` (`cod_certificado`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_cod_usuario_responsavel_alteracao`
-    FOREIGN KEY (`cod_alteracao`)
-    REFERENCES `mydb`.`usuario` (`cod_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `usuario_cod_usuario` INT NOT NULL,
+  `certificado_cod_certificado` INT NOT NULL)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`enum_status`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`enum_status` ;
+
 CREATE TABLE IF NOT EXISTS `mydb`.`enum_status` (
-  `cod_enum_status` INT NOT NULL,
+  `cod_enum_status` INT NOT NULL AUTO_INCREMENT,
   `descricao_enum_status` VARCHAR(45) NULL,
   PRIMARY KEY (`cod_enum_status`))
 ENGINE = InnoDB;
@@ -95,3 +89,17 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+ALTER TABLE certificado
+ADD FOREIGN KEY (usuario_cod_usuario) REFERENCES usuario(cod_usuario);
+
+ALTER TABLE usuario
+ADD FOREIGN KEY (perfil_cod_perfil) REFERENCES perfil(cod_perfil);
+
+ALTER TABLE alteracao_status_certificado
+ADD FOREIGN KEY (usuario_cod_usuario) REFERENCES usuario(cod_usuario);
+
+ALTER TABLE alteracao_status_certificado
+ADD FOREIGN KEY (certificado_cod_certificado) REFERENCES certificado(cod_certificado);
+
