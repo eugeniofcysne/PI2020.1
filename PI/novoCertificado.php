@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="arq">Tipo do Certificado: </label>
-                                <select name="select_tipo_certificado">
+                                <select name="select_tipo_certificado" id="tipoCertificado">
                                     <option value ="">Escolha o Tipo de Certificado
                                     <option value="Ensino">Ensino
                                     <option value="Extensão">Extensão

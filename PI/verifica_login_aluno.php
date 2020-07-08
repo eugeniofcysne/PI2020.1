@@ -15,7 +15,7 @@ if(count($row_usuario)>0){
     $_SESSION['email'] = $email;
     $_SESSION['senha'] = $senha;
     $_SESSION['nome_usuario'] = $row_usuario['nome'];
-    $_SESSION['codigo_usuario'] = $row_usuario['cod_usuario'];    
+    $_SESSION['cod_usuario'] = $row_usuario['cod_usuario'];    
 	$_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso</p>";
 	header('location:aluno.php');
 }else{

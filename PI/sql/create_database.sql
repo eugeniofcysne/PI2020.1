@@ -80,10 +80,9 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mydb`.`enum_status` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`enum_status` (
-  `cod_enum_status` INT NOT NULL AUTO_INCREMENT,
-  `descricao_enum_status` VARCHAR(45) NULL,
-  PRIMARY KEY (`cod_enum_status`))
-ENGINE = InnoDB;
+  `cod_enum_status` INT NULL,
+  `descricao_enum_status` VARCHAR(45) NULL)
+ENGINE = InnoDB
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
