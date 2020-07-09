@@ -29,30 +29,23 @@
 <br>
     <div class="container">
         <div class="row">
+            <h1>
+            Tela de Login - Coordenação
+            </h1>
+        </div>
+        <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <form  method="post" name="novo_certificado_form_aluno" id="novo_certificado_form_aluno" action="carregar_certificado_aluno.php" enctype="multipart/form-data">
+                        <form  method="post" name="login_aluno_form" id="login_aluno_form" action="verifica_login_coord.php">
+                            
                             <div class="form-group">
-                                <label for="arq">Fazer o upload do Certificado: </label>
-                                <input type="file" name="arquivos[]" class="form-control" id="arq">
+                                <label for="arq">Email: </label>
+                                <input type="email" name="email" class="form-control" id="email">
                             </div>
                             <div class="form-group">
-                                <label for="arq">Nome do Certificado: </label>
-                                <input type="text" name="nomeCertificado" class="form-control" id="nomeCertificado">
-                            </div>
-                            <div class="form-group">
-                                <label for="arq">Tipo do Certificado: </label>
-                                <select name="tipoCertificado" id="tipoCertificado">
-                                    <option value ="">Escolha o Tipo de Certificado
-                                    <option value="Ensino">Ensino
-                                    <option value="Extensão">Extensão
-                                    <option value="Pesquisa">Pesquisa
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="arq">Quantidade de Horas: </label>
-                                <input type="number" min="0" name="horasCertificado" class="form-control" id="horasCertificado">
+                                <label for="arq">Senha: </label>
+                                <input type="password" name="senha" class="form-control" id="senha"  autocomplete="off">
                             </div>
                             <button type="submit" id="bt_carregar" class="btn carregar">Carregar</button>
                             <button type="reset" class="btn">Limpar</button>

@@ -81,10 +81,10 @@ include_once("conexao.php");
 <h1>Listar Certificados</h1>
 <?php
 		
-        $result_usuarios = "SELECT * FROM certificado";
+        $result_usuarios = "SELECT t1.*, t2.nome as nome_usuario from certificado as t1 left join usuario as t2 on t2.cod_usuario = t1.usuario_cod_usuario";
 		$resultado_usuarios = mysqli_query($conn, $result_usuarios);
 		while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
-        echo "Nome: " . $row_usuario['usuario_cod_usuario'] . "<br>";
+        echo "Nome: " . $row_usuario['nome_usuario'] . "<br>";
         echo "Data: " . $row_usuario['data_criacao'] . "<br>";
         echo "Identificação certificado: " . $row_usuario['nome_certificado'] . "<br>";
         echo "Horas: " . $row_usuario['horas_certificado'] . "<br>";

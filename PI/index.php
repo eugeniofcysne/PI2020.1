@@ -54,7 +54,7 @@
 						
 						<div class="caption"> 
 							<h3>Coordenação</h3> <a name="coordenacao"> 
-							<p>Acessar como Coordenação</p> <p><a href="coord1.php" class="btn btn-primary" role="button">Coordenação</a>
+							<p>Acessar como Coordenação</p> <p><a href="login_coord.php" class="btn btn-primary" role="button">Coordenação</a>
 						</div> 
 					</div> 
 				</div> 

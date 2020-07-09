@@ -1,5 +1,24 @@
 <?php
 session_start();
+// $_SERVER['PHP_SELF'];
+
+// $formatosPermitidos = array("docx","pdf");
+// $extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
+// if(in_array($extensao, $formatosPermitidos)){
+// 	$pasta = "uploads/";
+// 	$temporario = $_FILES['arquivo']['tmp_name'];
+// 	$novoNome=uniqid().".$extensao";
+// 	if(move_uploaded_file($temporario,$pasta.$novoNome)){
+// 		$mensagem = "Upload feito com sucesso!";
+// 	}
+// 	else{
+// 		$mensagem = "Erro, não foi possível fazer o upload";
+// 	}
+// }
+// else{
+// 	$mensagem= "Formato inválido";
+// }
+
 include_once("conexao.php");
 
 

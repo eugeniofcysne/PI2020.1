@@ -74,7 +74,7 @@
 
 <body>
 <br/>
-        <h2>Bem vindo!</h2>
+        <h2>Bem vindo a tela da Coordenação!</h2>
         <br/>
         <br/>
         <div id="middle">
