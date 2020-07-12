@@ -32,10 +32,14 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <form  method="post" name="novo_certificado_form_aluno" id="novo_certificado_form_aluno" action="carregar_certificado_aluno.php" enctype="multipart/form-data">
+                        <form  method="post" name="novo_certificado_form_aluno" id="novo_certificado_form_aluno" action="carregar_certificado_aluno.php">
                             <div class="form-group">
                                 <label for="arq">Fazer o upload do Certificado: </label>
                                 <input type="file" name="arquivos[]" class="form-control" id="arq">
+                            </div>
+                            <div class="form-group">
+                                <label for="arq">Nome do Aluno: </label>
+                                <input type="text" name="nomeAluno" class="form-control" id="nomeAluno">
                             </div>
                             <div class="form-group">
                                 <label for="arq">Nome do Certificado: </label>
@@ -43,16 +47,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="arq">Tipo do Certificado: </label>
-                                <select name="tipoCertificado" id="tipoCertificado">
-                                    <option value ="">Escolha o Tipo de Certificado
-                                    <option value="Ensino">Ensino
-                                    <option value="Extensão">Extensão
-                                    <option value="Pesquisa">Pesquisa
-                                </select>
+                                <input type="text" name="tipoCertificado" class="form-control" id="tipoCertificado">
                             </div>
                             <div class="form-group">
                                 <label for="arq">Quantidade de Horas: </label>
-                                <input type="number" min="0" name="horasCertificado" class="form-control" id="horasCertificado">
+                                <input type="number" name="horasCertificado" class="form-control" id="horasCertificado">
                             </div>
                             <button type="submit" id="bt_carregar" class="btn carregar">Carregar</button>
                             <button type="reset" class="btn">Limpar</button>
@@ -71,5 +70,4 @@
 </body>
 
 
-</html><a href="index.php">Voltar para página principal</a><br>
-<a href="aluno.php">Voltar para página Aluno</a>
+</html><a href="index.php">Voltar para página principal</a>

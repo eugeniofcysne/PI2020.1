@@ -65,12 +65,14 @@ $nome = $_SESSION['nome_usuario'];
 			</div>			
 		</div>
 	</div>
+	</html><a href="index.php">Voltar para página principal</a><br>
+<a href="aluno.php">Voltar para página Aluno</a>
 </body>
 <footer>
 	<div class="container footer" style="width: 100%">
 		<div class="row">
 			<div class="col-md-12">
-				<p>© 2019 Controle de Certificados | Todos os direitos reservados. Construido por <strong>Alexandre e Eugênio - Academicos do curso de Análise e Desenvolvimento de Sistemas - SENAI</a>.</p>
+				<p>© 2020 Controle de Certificados | Todos os direitos reservados. Construido por <strong>Alexandre e Eugênio - Academicos do curso de Análise e Desenvolvimento de Sistemas - SENAI</a>.</p>
 			</div>
 		</div>
 	</div>
