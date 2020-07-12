@@ -110,22 +110,28 @@ include_once("conexao.php");
 
 		$resultado_usuarios = mysqli_query($conn, $result_certificados);
 		while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
-        echo "Nome do Aluno: " . $row_usuario['nome_usuario'] . "<br>";
-        echo "Data: " . $row_usuario['data_criacao'] . "<br>";
-        echo "Nome do Certificado: " . $row_usuario['nome_certificado'] . "<br>";
-        $cod_certificado=$row_usuario['cod_certificado'];
-        echo "Horas: " . $row_usuario['horas_certificado'] . "<br>";
-        echo "Tipo de certificado: " . $row_usuario['tipo_certificado'] . "<br>";
-        echo "
-        <a style = \"margin-right: 10px; margin-left: 2px;\" href =\"aprova_certificado_coord.php?cod_certificado=" . $cod_certificado . "\" class=\"btn btn-primary\" role=\"button\" >
-            Aprovar Certificado
-        </a>           
-        ";
-        echo "<a href=\"reprova_certificado_coord.php\" class=\"btn btn-primary\" role=\"button\">Reprovar Certificado</a>". "<br><hr>";
+            echo "Nome do Aluno: " . $row_usuario['nome_usuario'] . "<br>";
+            echo "Data: " . $row_usuario['data_criacao'] . "<br>";
+            echo "Nome do Certificado: " . $row_usuario['nome_certificado'] . "<br>";
+            $cod_certificado=$row_usuario['cod_certificado'];
+            echo "Horas: " . $row_usuario['horas_certificado'] . "<br>";
+            echo "Tipo de certificado: " . $row_usuario['tipo_certificado'] . "<br>";
+            echo "
+            <a style = \"margin-right: 10px; margin-left: 2px;\" href =\"aprova_certificado_coord.php?cod_certificado=" . $cod_certificado . "\" class=\"btn btn-primary\" role=\"button\" >
+                Aprovar Certificado
+            </a>           
+            ";
+            echo "
+            <a style = \"margin-right: 10px; margin-left: 2px;\" href =\"reprova_certificado_coord.php?cod_certificado=" . $cod_certificado . "\" class=\"btn btn-primary\" role=\"button\" >
+                Reprovar Certificado
+            </a>           
+            ";
         
         }
         ?>
+        <br>
+        <a href="index.php">Voltar para página principal</a>
 </body>
 
 
-</html><a href="index.php">Voltar para página principal</a>
+</html>
