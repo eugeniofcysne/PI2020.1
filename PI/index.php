@@ -27,9 +27,7 @@
 
 				<div class="col-md-7 col-xs-12">
 					<h1>Controle de Certificados</h1><a name="inicio"> 
-					<p>&emsp;Neste projeto integrador foi proposto aos alunos criar um sistema para o Controle de Certificados do SENAI, envolvendo o processo completo desde o envio de um certificado por parte do aluno até a aprovação por parte da coordenação e da secretaria.
-					<br>&emsp;Aqui vai mais um texto descritivo blablabla</p>
-					<p>Para baixar este documento que eu não sei qual é ainda, clique aqui: <strong><a href="proposta.pdf">Proposta PI</a></p></strong>		
+					<p>&emsp;Neste projeto integrador foi proposto aos alunos criar um sistema para o Controle de Certificados do SENAI, envolvendo o processo completo desde o envio de um certificado por parte do aluno até a aprovação por parte da coordenação e da secretaria.	
 				</div>
 			</div>
 		</div>
@@ -87,13 +85,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2"><a href="#"><img id="logo" src="img/senai.png"></a></div>
-			<div class="col-md-3 lista_footer"><a href="#sobre">Controle de Certificados</a></div>
-			<div class="col-md-1 lista_footer"><a href="#inicio">Início</a></div>
 			<div class="col-md-1 lista_footer"><a href="contato.php">Contato</a></div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<p>© 2019 Controle de Certificados | Todos os direitos reservados. Construido por <strong>Alexandre e Eugênio - Academicos do curso de Análise e Desenvolvimento de Sistemas - SENAI</a>.</p>
+				<p>© 2020 Controle de Certificados | Todos os direitos reservados. Construido por <strong>Alexandre e Eugênio - Academicos do curso de Análise e Desenvolvimento de Sistemas - SENAI</a>.</p>
 			</div>
 		</div>
 	</div>

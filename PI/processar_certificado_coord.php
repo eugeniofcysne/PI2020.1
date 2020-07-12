@@ -130,7 +130,8 @@ include_once("conexao.php");
         }
         ?>
         <br>
-        <a href="index.php">Voltar para página principal</a>
+        <a href="index.php">Voltar para página principal</a><br>
+        <a href="coord1.php">Voltar para página Coordenação</a>
 </body>
 
 
