@@ -1,15 +1,6 @@
-
-<?php 
-include_once("conexao.php");
+<?php
 session_start();
-if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true)){
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  header('location:index.php');
-}
- 
-$nome = $_SESSION['nome_usuario'];
-$cod_usuario =  $_SESSION['cod_usuario'] ;
+include_once("conexao.php");
 ?>
 <html lang="pt-br">
 
@@ -87,41 +78,54 @@ $cod_usuario =  $_SESSION['cod_usuario'] ;
 </head>
 <body>
 
-<h1>
-    <?php
-        echo "Relatório Geral $nome"
-    ?>
-</h1>
-<?php
-		
-        $result_relatorio = "select a1.*,
+<h1>Processar Certificados</h1>
+<?php       
+        
+        $result_certificados = 
+        "select 
+        a1.*,
         (
             select 
-            a3.descricao_enum_status 
-            from enum_status as a3 
-            where cod_enum_status = 
-            (
-                select 
-                max(a2.enum_status_posterior) 
-                from alteracao_status_certificado  as a2 
-                where a1.cod_certificado = certificado_cod_certificado
-            )
-        ) as status
+            a2.nome
+            from
+            usuario as a2
+            where
+            a2.cod_usuario = a1.usuario_cod_usuario
+        )  as nome_usuario 
         from
         certificado as a1
-        where a1.usuario_cod_usuario =$cod_usuario";
-		$resultado_relatorio = mysqli_query($conn, $result_relatorio);
-		while($row_relatorio = mysqli_fetch_assoc($resultado_relatorio)) {
-        echo "Nome do Certificado: " . $row_relatorio['nome_certificado'] . "<br>";
-        echo "Data de Criação: " . $row_relatorio['data_criacao'] . "<br>";
-        echo "Tipo de Certificado: " . $row_relatorio['tipo_certificado'] . "<br>";
-        echo "Horas: " . $row_relatorio['horas_certificado'] . "<br>";
-        echo "Status: " . $row_relatorio['status'] . "<br><hr>";
+        where a1.cod_certificado in 
+            (
+            select
+            t1.cod_certificado from
+                (
+                select 
+                certificado_cod_certificado as cod_certificado,
+                max(enum_status_posterior) as max_status
+                from alteracao_status_certificado
+                group by certificado_cod_certificado
+                ) as t1
+            where t1.max_status=0
+                );";
+
+		$resultado_usuarios = mysqli_query($conn, $result_certificados);
+		while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
+        echo "Nome do Aluno: " . $row_usuario['nome_usuario'] . "<br>";
+        echo "Data: " . $row_usuario['data_criacao'] . "<br>";
+        echo "Nome do Certificado: " . $row_usuario['nome_certificado'] . "<br>";
+        $cod_certificado=$row_usuario['cod_certificado'];
+        echo "Horas: " . $row_usuario['horas_certificado'] . "<br>";
+        echo "Tipo de certificado: " . $row_usuario['tipo_certificado'] . "<br>";
+        echo "
+        <a style = \"margin-right: 10px; margin-left: 2px;\" href =\"aprova_certificado_coord.php?cod_certificado=" . $cod_certificado . "\" class=\"btn btn-primary\" role=\"button\" >
+            Aprovar Certificado
+        </a>           
+        ";
+        echo "<a href=\"reprova_certificado_coord.php\" class=\"btn btn-primary\" role=\"button\">Reprovar Certificado</a>". "<br><hr>";
         
         }
         ?>
 </body>
 
 
-</html><a href="index.php">Voltar para página principal<br></a>
-</html><a href="aluno.php">Voltar para página do Aluno</a>
+</html><a href="index.php">Voltar para página principal</a>

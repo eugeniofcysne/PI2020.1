@@ -39,7 +39,7 @@ $nome = $_SESSION['nome_usuario'];
 					echo" Bem vindo $nome";
 					?>
 					</h1><a name="inicio"> 
-					<p>&emsp;Bem-vindo(a) ao módulo de Aluno. Neste ambiente, você pode cadastrar um novo certificado, Solicitar emissão de certificado, gerar relatório e acompanhar certificados em andamento.	
+					<p>&emsp;Bem-vindo(a) ao módulo de Secretaria. Neste ambiente, você pode processar os certificados em andamento.	
 				</div>
 			</div>
 		</div>
@@ -50,17 +50,8 @@ $nome = $_SESSION['nome_usuario'];
 			
 
 				<div class="col-sm-3">
-                    <a href="novo_certificado.php" class="btn btn-primary" role="button">Novo Certificado</a>
-				</div> 
-                <!--<div class="col-sm-3">
-                    <a href="solicitarCertificado.php" class="btn btn-primary" role="button">Solicitar Certificado</a>
-				</div> -->
-                <div class="col-sm-3">
-                    <a href="gerar_relatorio.php" class="btn btn-primary" role="button">Gerar Relatório</a>
-				</div> 
-                <div class="col-sm-3">
-                    <a href="relatorio_andamento.php" class="btn btn-primary" role="button">Certificados em Andamento</a>
-				</div> 								
+                    <a href="processar_certificado_secretaria.php" class="btn btn-primary" role="button">Processar Certificados</a>
+				</div> 							
 				
 			</div>			
 		</div>

@@ -63,7 +63,7 @@
 						
 						<div class="caption"> 
 							<h3>Secretaria</h3> <a name="secretaria"> 
-							<p>Acessar como Secretaria</p> <p><a href="secretaria.php" class="btn btn-primary" role="button">Secretaria</a>
+							<p>Acessar como Secretaria</p> <p><a href="login_secretaria.php" class="btn btn-primary" role="button">Secretaria</a>
 						</div> 
 					</div> 
 				</div> 

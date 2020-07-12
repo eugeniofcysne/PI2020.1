@@ -79,21 +79,11 @@
         <br/>
         <div id="middle">
 	<div class="container">		
-		<div class="row">
-        <div class="col-sm-4"> 
-				<div class="thumbnail"> 
-					
-					<div class="caption"> 
-						<a name="coord1"> 
-						<h4>Criar Certificados de Eventos</h4> <p><a href="desofusca.php" class="btn btn-primary" role="button">Criar</a>
-					</div> 
-				</div> 
-			</div> 
-            
+		<div class="row">            
             <div class="col-sm-4"> 
 				<div class="thumbnail"> 
 					<div class="caption"> 
-						<h4>Processar Certificados</h4> <p><a href="processar.php" class="btn btn-primary" role="button">Processar</a>
+						<h4>Processar Certificados</h4> <p><a href="processar_certificado_coord.php" class="btn btn-primary" role="button">Processar</a>
 					</div> 
 				</div> 
 			</div> 

@@ -89,7 +89,7 @@ $cod_usuario =  $_SESSION['cod_usuario'] ;
 
 <h1>
     <?php
-        echo "Relatório Geral $nome"
+        echo "Relatório Ensino $nome"
     ?>
 </h1>
 <?php
@@ -109,7 +109,8 @@ $cod_usuario =  $_SESSION['cod_usuario'] ;
         ) as status
         from
         certificado as a1
-        where a1.usuario_cod_usuario =$cod_usuario";
+        where a1.usuario_cod_usuario =$cod_usuario
+        and a1.tipo_certificado = 'Ensino'";
 		$resultado_relatorio = mysqli_query($conn, $result_relatorio);
 		while($row_relatorio = mysqli_fetch_assoc($resultado_relatorio)) {
         echo "Nome do Certificado: " . $row_relatorio['nome_certificado'] . "<br>";
