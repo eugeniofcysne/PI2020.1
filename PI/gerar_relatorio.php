@@ -39,7 +39,7 @@ $nome = $_SESSION['nome_usuario'];
 					echo" Bem vindo $nome";
 					?>
 					</h1><a name="inicio"> 
-					<p>&emsp;Bem-vindo(a) ao módulo de Aluno. Neste ambiente, você pode cadastrar um novo certificado, Solicitar emissão de certificado, gerar relatório e acompanhar certificados em andamento.	
+					<p>&emsp;Escolha o relatório desejado.	
 				</div>
 			</div>
 		</div>
@@ -50,16 +50,16 @@ $nome = $_SESSION['nome_usuario'];
 			
 
 				<div class="col-sm-3">
-                    <a href="novo_certificado.php" class="btn btn-primary" role="button">Novo Certificado</a>
-				</div> 
-                <!--<div class="col-sm-3">
-                    <a href="solicitarCertificado.php" class="btn btn-primary" role="button">Solicitar Certificado</a>
-				</div> -->
-                <div class="col-sm-3">
-                    <a href="gerar_relatorio.php" class="btn btn-primary" role="button">Gerar Relatório</a>
+                    <a href="relatorio_geral.php" class="btn btn-primary" role="button">Relatório Geral</a>
 				</div> 
                 <div class="col-sm-3">
-                    <a href="relatorioAndamento.php" class="btn btn-primary" role="button">Certificados em Andamento</a>
+                    <a href="relatorio_ensino.php" class="btn btn-primary" role="button">Relatório Ensino</a>
+				</div>
+                <div class="col-sm-3">
+                    <a href="relatorio_pesquisa.php" class="btn btn-primary" role="button">Relatório Pesquisa</a>
+				</div> 
+                <div class="col-sm-3">
+                    <a href="relatorio_extensao.php" class="btn btn-primary" role="button">Relatório Extensão</a>
 				</div> 								
 				
 			</div>			
