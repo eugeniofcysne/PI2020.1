@@ -32,7 +32,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <form  method="post" name="novo_certificado_form_aluno" id="novo_certificado_form_aluno" action="carregar_certificado_aluno.php" enctype="multipart/form-data">
+                        <form  method="post" name="novo_certificado_form_aluno" id="novo_certificado_form_aluno" action="novo_certificado.php" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="arq">Fazer o upload do Certificado: </label>
                                 <input type="file" name="arquivos[]" class="form-control" id="arq">
