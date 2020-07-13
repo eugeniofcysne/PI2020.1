@@ -54,7 +54,7 @@
                                 <label for="arq">Quantidade de Horas: </label>
                                 <input type="number" min="0" name="horasCertificado" class="form-control" id="horasCertificado">
                             </div>
-                            <button type="submit" id="bt_carregar" class="btn carregar">Carregar</button>
+                            <button type="submit" id="bt_carregar" class="btn carregar"><a href="novo_certificado.php">Carregar</a></button>
                             <button type="reset" class="btn">Limpar</button>
                         </form>
 
