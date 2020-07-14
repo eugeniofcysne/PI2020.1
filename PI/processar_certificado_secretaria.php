@@ -124,13 +124,14 @@ include_once("conexao.php");
             echo "
             <a style = \"margin-right: 10px; margin-left: 2px;\" href =\"reprova_certificado_secretaria.php?cod_certificado=" . $cod_certificado . "\" class=\"btn btn-primary\" role=\"button\" >
                 Reprovar Certificado
-            </a>           
+            </a>    <br>       <hr>
             ";
         
         }
         ?>
         <br>
-        <a href="index.php">Voltar para página principal</a>
+        <a href="index.php">Voltar para página principal</a> <br>
+        <a href="secretaria.php">Voltar para página Secretaria</a>
 </body>
 
 

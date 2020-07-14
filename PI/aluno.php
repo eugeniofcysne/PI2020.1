@@ -8,7 +8,9 @@ if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == tru
   unset($_SESSION['senha']);
   header('location:index.php');
 }
- 
+
+
+$cod_usuario=$_SESSION['cod_usuario'];
 $nome = $_SESSION['nome_usuario'];
 ?>
 <title>Aluno</title>
@@ -40,6 +42,26 @@ $nome = $_SESSION['nome_usuario'];
 					?>
 					</h1><a name="inicio"> 
 					<p>&emsp;Bem-vindo(a) ao módulo de Aluno. Neste ambiente, você pode cadastrar um novo certificado, Solicitar emissão de certificado, gerar relatório e acompanhar certificados em andamento.	
+					<?php
+					include_once("conexao.php");
+					$result_relatorio="
+					select 
+					sum(a1.horas_certificado) as horas
+					from certificado as a1
+					inner join 
+						(
+						select certificado_cod_certificado as cod_certificado from alteracao_status_certificado where enum_status_posterior=3
+						) as a2    
+					on a1.cod_certificado = a2.cod_certificado
+					where usuario_cod_usuario =$cod_usuario;";
+					
+					$resultado_relatorio = mysqli_query($conn, $result_relatorio);
+					while($row_relatorio = mysqli_fetch_assoc($resultado_relatorio)) {
+					echo " Quantidade de horas aprovadas: " . $row_relatorio['horas'] . " de 60" . "<br>";
+					
+					
+					}
+					?>
 				</div>
 			</div>
 		</div>

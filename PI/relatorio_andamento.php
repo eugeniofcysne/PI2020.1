@@ -127,8 +127,9 @@ $cod_usuario =  $_SESSION['cod_usuario'] ;
         
         }
         ?>
+    <a href="index.php">Voltar para página principal<br></a>
+    <a href="aluno.php">Voltar para página do Aluno</a>
 </body>
 
 
-</html><a href="index.php">Voltar para página principal<br></a>
-</html><a href="aluno.php">Voltar para página do Aluno</a>
+</html>

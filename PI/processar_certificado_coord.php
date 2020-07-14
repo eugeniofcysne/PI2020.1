@@ -124,7 +124,7 @@ include_once("conexao.php");
             echo "
             <a style = \"margin-right: 10px; margin-left: 2px;\" href =\"reprova_certificado_coord.php?cod_certificado=" . $cod_certificado . "\" class=\"btn btn-primary\" role=\"button\" >
                 Reprovar Certificado
-            </a>           
+            </a>           <br><hr>
             ";
         
         }
